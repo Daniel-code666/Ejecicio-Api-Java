@@ -51,7 +51,7 @@ public class UserService  {
     	User usuario=new User();
     	usuario= null;
     	if (existe(id)) {
-    		usuario=repo.getById(id);
+    		usuario=repo.findById(id).get();
     	}
     	return usuario;
     }
