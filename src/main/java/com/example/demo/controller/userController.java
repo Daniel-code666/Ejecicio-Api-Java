@@ -20,7 +20,7 @@ import org.springframework.http.ResponseEntity;
  */
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-@RequestMapping("/api/Client/")
+@RequestMapping("/api/User/")
 
 public class userController {
     @Autowired
