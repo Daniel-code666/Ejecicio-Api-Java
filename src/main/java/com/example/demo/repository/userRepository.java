@@ -24,4 +24,12 @@ public interface userRepository extends JpaRepository<User, Integer> {
 //    public List<User> getAllUsers(){
 //        return (List<User>) repo.findAll();
 //    }
+	
+/*	public List<User> getUsers();
+	public User getUserById(int id);
+	public boolean updateUser(User usuario);
+	public boolean addUser(User usuario);
+	public boolean deleteUser(int id);*/
+	
+	
 }

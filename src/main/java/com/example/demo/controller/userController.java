@@ -7,8 +7,11 @@ package com.example.demo.controller;
 import com.example.demo.service.UserService;
 import com.example.demo.entity.User;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 /**
@@ -27,4 +30,16 @@ public class userController {
     public List<User> getUsers(){
         return userServ.getAllUser();
     }
+    @GetMapping(value="/user/{id}")
+    public User getUserById(@PathVariable(value="id")int id) {
+    	return userServ.getUserById(id);
+    } 
+    @PostMapping(value = "/add")
+	public boolean add(@RequestBody User user) throws ExecutionException  {
+		return userServ.addUser(user);
+	}
+	
 }
+    	
+    
+    
