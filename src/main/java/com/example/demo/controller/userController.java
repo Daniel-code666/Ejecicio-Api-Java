@@ -38,6 +38,15 @@ public class userController {
 	public boolean add(@RequestBody User user) throws ExecutionException  {
 		return userServ.addUser(user);
 	}
+    @DeleteMapping(value="/delete/{id}")
+    public boolean delete(@PathVariable(value="id") int id) {
+    	return userServ.deleteUser(id);
+    }
+    @PutMapping(value="/update")
+    public boolean update(@RequestBody User user) {
+		return userServ.updateUser(user);
+    	
+    }
 	
 }
     	

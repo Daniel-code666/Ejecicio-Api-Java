@@ -55,26 +55,39 @@ public class UserService  {
     	}
     	return usuario;
     }
+    
 	public boolean updateUser(User usuario) {
-		return false;
-	}{
 		
-	}
-	public boolean addUser(User usuario){
-		//Map<String, Object> docData = getDocData(usuario);
-		
-		
-		try {
-			repo.save(usuario);
+		if (existe(usuario.getUserId())) {
+			repo.saveAndFlush(usuario);
 			return true;
-		} catch (Exception e) {
+		}else {
 			return false;
 		}
 		
 		
 	}
+	
+	public boolean addUser(User usuario){	
+		try {
+			repo.save(usuario);
+			repo.flush();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}	
+	}
+	
 	public boolean deleteUser(int id){
-		return false;
+		
+		if(existe(id)) {
+			
+			repo.deleteById(id);
+			repo.flush();
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 }
